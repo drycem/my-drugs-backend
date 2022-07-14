@@ -23,3 +23,11 @@ class DrugSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {
             'url': {'view_name': 'drug-detail', 'lookup_field': 'code'}
         }
+
+class SgkDrugSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SgkDrug
+        fields = "__all__"
+        extra_kwargs = {
+            'url': {'view_name': 'sgkdrug-detail', 'lookup_field': 'BARKOD'}
+        }

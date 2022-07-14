@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from mydrugs.models import Drug
-from mydrugs.serializers import UserSerializer, GroupSerializer, DrugSerializer
+from mydrugs.models import Drug, SgkDrug
+from mydrugs.serializers import UserSerializer, GroupSerializer, DrugSerializer, SgkDrugSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -31,3 +31,12 @@ class DrugViewSet(viewsets.ModelViewSet):
     serializer_class = DrugSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     lookup_field = 'code'
+
+class SgkDrugViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows SGK drugs to be viewed.
+    """
+    queryset = SgkDrug.objects.all()
+    serializer_class = SgkDrugSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    lookup_field = 'BARKOD'

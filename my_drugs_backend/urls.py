@@ -6,6 +6,7 @@ router = routers.DefaultRouter()
 router.register(r'users', viewset=views.UserViewSet)
 router.register(r'groups', viewset=views.GroupViewSet)
 router.register(r'drugs', viewset=views.DrugViewSet)
+router.register(r'sgkdrugs', viewset=views.SgkDrugViewSet)
 
 
 urlpatterns = [
